@@ -1,21 +1,17 @@
 // have to setup getnotes, savenote, deletenote routes
-// /api/notes, /api/notes, /api/notes/:id
-// 
 const { v4: uuidv4 } = require('uuid');
 const fs = require('fs');
 const uuid = require('../helpers/uuid');
 const notes = require('express').Router();
 const { readFromFile, readAndAppend, writeToFile } = require('../helpers/fsUtils');
 
-// GET Route for feedback page
-// notes.get('/notes', (req, res) =>
-//   res.sendFile(path.join(__dirname, './public/notes.html'))
-// );
 
+// get notes
 notes.get('/', (req, res) => {
   readFromFile('./db/db.json').then((data => res.json(JSON.parse(data))))
 })
 
+// save note
 notes.post('/', (req, res) => {
   const { title, text } = req.body;
 
@@ -41,7 +37,6 @@ notes.post('/', (req, res) => {
 })
 
 // delete note
-
 notes.delete('/:id', (req, res) => {
   const noteId = req.params.id;
   readFromFile('./db/db.json')
