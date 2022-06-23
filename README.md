@@ -32,6 +32,8 @@ The express npm package was used to set up the routes, and the uuid npm package 
 ### Installation Instructions
 
 ```md
+deployed at https://express---note-taker.herokuapp.com/
+otherwise
 clone the repo and run npm install in the terminal
 ```
 
